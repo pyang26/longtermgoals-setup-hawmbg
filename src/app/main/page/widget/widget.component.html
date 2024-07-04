@@ -1,0 +1,17 @@
+<div class="widget" *ngIf="longTermData">
+    <div class="title">Long-Term Goals</div> 
+  <div class="tasks">
+    <div class="task" *ngFor="let goal of longTermData.longTermGoals; trackBy: trackByFn">
+      <div class="line"></div>
+      <div class="placeholder">
+      <div class="year">{{ goal.year }}</div>
+      <div class="text">{{ goal.text }}</div>
+      <br>
+      </div>
+    </div>
+  </div>
+  <img class="edit" (click)="onEdit()" src="/assets/img/edit.svg" width="26" height="26" />
+</div>
+<div *ngIf="!longTermData">
+  <mat-spinner [diameter]="60" [strokeWidth]="2"></mat-spinner>
+</div> 
